@@ -7,6 +7,7 @@ function commitOnSpecificDay(message, date) {
     const formattedDate = new Date(date).toISOString();
 
     // Git commands to commit with specific date
+    console.log(formattedDate)
     execSync(`git add -A`);
     execSync(`GIT_COMMITTER_DATE="${formattedDate}" git commit --date="${formattedDate}" -m "${message}"`);
 
