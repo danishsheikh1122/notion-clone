@@ -7,6 +7,6 @@
 
 - new to know what is organizational folders these are the folders that in created as (folder name) it is very use full
 
-# created Landing page
+# started creating Landing page
 - styled landing page
 - created heading component and styled it 
