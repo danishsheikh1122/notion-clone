@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 import Heading from "./_components/heading";
+import Hero from "./_components/hero";
+import Footer from "./_components/footer";
 
 const Home = () => {
   return (
@@ -12,9 +14,11 @@ const Home = () => {
     //   </div>
 
     <div className="min-h-full flex flex-col">
-      <div className="flex flex-col items-center justify-center md:justify-center text-center flex-1 gap-y-8 px-6 pb-10">
+      <div className="flex flex-col items-center justify-center md:justify-center text-center flex-1 gap-y-8 px-6 pb-6">
         <Heading />
+        <Hero />
       </div>
+      <Footer />
     </div>
   );
 };
