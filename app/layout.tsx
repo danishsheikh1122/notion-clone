@@ -7,6 +7,20 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Jotion",
   description: "This is a landing page of jotion clone ",
+  icons: {
+    icon: [
+      {
+        media: "(prefers-color-scheme:light)",
+        url: "/logodarkmodeJ.svg",
+        href: "/logodarkmodeJ.svg",
+      },
+      {
+        media: "(prefers-color-scheme:dark)",
+        url: "/logolightmodeJ.svg",
+        href: "/logolightmodeJ.svg",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
