@@ -21,3 +21,8 @@
 - added DARK MODE in nav bar- used shadcn docs to add dark mode to webpage and in dark mode we just toggle styles like below---->
   <Image src="/logo.svg" height="40" width="40" alt="logo" className="dark:hidden"/>
   <Image src="/logo-dark.svg" height="40" width="40" alt="logo" className="hidden dark:block"/>
+
+# implemented authentication
+
+- used convex db and cleark provider to authenticate
+
