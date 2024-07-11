@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import { useConvexAuth } from "convex/react";
 import { Span } from "next/dist/trace";
-import { SignInButton } from "@clerk/clerk-react";
+import { SignInButton, UserButton } from "@clerk/clerk-react";
 import Spinner from "@/components/Spinner";
+import Link from "next/link";
 const NavBar = () => {
   const isScrolled = useScrollHook();
   const { isAuthenticated, isLoading } = useConvexAuth();
@@ -25,7 +26,7 @@ const NavBar = () => {
           LogIn
         </Button> */}
 
-        {isLoading && <Spinner/>}
+        {isLoading && <Spinner />}
         {!isAuthenticated && !isLoading && (
           <>
             <SignInButton mode="modal">
@@ -38,6 +39,15 @@ const NavBar = () => {
                 Get Jotion Free
               </Button>
             </SignInButton>
+          </>
+        )}
+
+        {isAuthenticated && !isLoading && (
+          <>
+            <Button variant="ghost">
+              <Link href="/documents">Enter Jotion</Link>
+            </Button>
+            <UserButton afterSignOutUrl="/"></UserButton>
           </>
         )}
         <ModeToggle />
