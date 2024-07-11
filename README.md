@@ -25,4 +25,4 @@
 # implemented authentication
 
 - used convex db and cleark provider to authenticate
-
+- added spinnner cmp and it is created usng cva and cn lib refer cmp>spinner.tsx
