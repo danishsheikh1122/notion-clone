@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 const hero = () => {
+
   return (
     <div className="flex flex-col items-center justify-center max-w-5xl gap-2">
       <div className="flex text-center gap-1">
