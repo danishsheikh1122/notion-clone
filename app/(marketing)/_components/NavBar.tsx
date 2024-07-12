@@ -21,7 +21,7 @@ const NavBar = () => {
       )}
     >
       <Logo />
-      <div className="flex w-full md:justify-end justify-between gap-x-1 items-center">
+      <div className="flex w-full md:justify-end justify-between gap-x-3 items-center">
         {/* <Button variant='ghost' >
           LogIn
         </Button> */}

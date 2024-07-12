@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ConvexClientProvider } from "@/components/providers/convex-provider";
+import NavBar from "./(marketing)/_components/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,7 +42,10 @@ export default function RootLayout({
             disableTransitionOnChange
             storageKey="jotion-theme"
           >
-            {children}
+            <main>
+              {/* <NavBar></NavBar> */}
+              {children}
+            </main>
           </ThemeProvider>
         </ConvexClientProvider>
       </body>

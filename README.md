@@ -31,3 +31,7 @@
   and ss
   ![alt text](https://file%2B.vscode-resource.vscode-cdn.net/Users/danishsheikh/Desktop/next-projects/notion-clone/Screenshot%202024-07-11%20at%2011.11.06%20PM.png?version%3D1720719738575)
 - added logic to heading button
+
+# Protected routes of /documents
+
+- used new wat to protet routes , here we have used an organization folder as (main) > (routes) >all routable folders documents>page.tsx , now in (main)> layout.tsx inside this we called useConvexAuth from convex/react and if the user is not authenticated the we redirect him to '/' using redirect function from next/navigation
