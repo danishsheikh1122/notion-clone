@@ -34,4 +34,11 @@
 
 # Protected routes of /documents
 
+- created new route
 - used new wat to protet routes , here we have used an organization folder as (main) > (routes) >all routable folders documents>page.tsx , now in (main)> layout.tsx inside this we called useConvexAuth from convex/react and if the user is not authenticated the we redirect him to '/' using redirect function from next/navigation
+
+# creating naviagtion component
+
+- created navigation in \_cmp inside(main)
+- created and styled all items in navigation most hard code
+- most hard code for navigaiton cmp , just front end is hard

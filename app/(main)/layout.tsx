@@ -3,7 +3,6 @@ import Spinner from "@/components/Spinner";
 import { useConvexAuth } from "convex/react";
 import { redirect } from "next/navigation";
 import React from "react";
-import NavBar from "../(marketing)/_components/NavBar";
 import Navigation from "./_components/navigation";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
@@ -16,10 +15,10 @@ const layout = ({ children }: { children: React.ReactNode }) => {
     );
   if (!isAuthenticated) return redirect("/");
   return (
-    <div className="h-full flex">
-      <Navigation></Navigation>
-      <main className="flex-1 overflow-y-auto h-full">
-        {children}</main>
+    <div className="h-screen flex">
+      {/* instead of h-full we used h-screen */}
+      <Navigation />
+      <main className="flex-1 h-full overflow-y-auto">{children}</main>
     </div>
   );
 };
