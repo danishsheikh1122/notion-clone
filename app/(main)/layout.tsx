@@ -6,10 +6,11 @@ import React from "react";
 import Navigation from "./_components/navigation";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
+  /* trunk-ignore(eslint/react-hooks/rules-of-hooks) */
   const { isAuthenticated, isLoading } = useConvexAuth();
   if (isLoading)
     return (
-      <div className="h-full w-full flex justify-center items-center">
+      <div className="absolute left-[50%] top-[50%]">
         <Spinner size="lg"></Spinner>
       </div>
     );

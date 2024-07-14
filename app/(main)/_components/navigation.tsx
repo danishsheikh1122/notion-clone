@@ -6,6 +6,7 @@ import { calculateOverrideValues } from "next/dist/server/font-utils";
 import { usePathname } from "next/navigation";
 import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
+import UserItem from "./useritem";
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -27,7 +28,7 @@ const Navigation = () => {
   }, [isMobile]);
   useEffect(() => {
     if (isMobile) {
-      collapse( );
+      collapse();
     }
   }, [pathname, isMobile]);
 
@@ -109,7 +110,9 @@ const Navigation = () => {
         >
           <ChevronsLeft className="w-6 h-6" />
         </div>
-        <div>Action items</div>
+        <div>
+          <UserItem />
+        </div>
         <div className="mt-4 bg-">documents</div>
         <div
           className="opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0"

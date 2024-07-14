@@ -42,3 +42,9 @@
 - created navigation in \_cmp inside(main)
 - created and styled all items in navigation most hard code
 - most hard code for navigaiton cmp , just front end is hard
+
+# creating documents page
+
+- started creating document page - styling its layout and all
+- added btns in documents page
+- created logout in navigation 
