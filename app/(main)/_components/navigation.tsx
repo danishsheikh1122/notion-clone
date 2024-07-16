@@ -1,12 +1,33 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { ChevronsLeft, MenuIcon, Rewind } from "lucide-react";
+import {
+  ChevronsLeft,
+  MenuIcon,
+  Plus,
+  PlusCircle,
+  PlusIcon,
+  Rewind,
+  Search,
+  Settings,
+  Trash,
+} from "lucide-react";
 import { calculateOverrideValues } from "next/dist/server/font-utils";
 import { usePathname } from "next/navigation";
 import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import UserItem from "./useritem";
+import { useMutation, useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import Item from "./item";
+import { toast } from "sonner";
+import DocumentList from "./documentlist";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import TrashBox from "./trashbox";
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -18,7 +39,7 @@ const Navigation = () => {
   const [isResetting, setIsResetting] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(isMobile);
   const [sidebarWidth, setSidebarWidth] = useState(isMobile ? 0 : 240);
-
+  const create = useMutation(api.documents.create);
   useEffect(() => {
     if (isMobile) {
       collapse();
@@ -90,6 +111,15 @@ const Navigation = () => {
     }
   };
 
+  const handleCreate = () => {
+    const promise = create({ title: "untitled" }); //for every new file or folder
+    toast.promise(promise, {
+      loading: "creaitng a new note...",
+      success: "new note created!",
+      error: "failed to create a new note",
+    });
+  };
+
   return (
     <>
       <aside
@@ -112,10 +142,27 @@ const Navigation = () => {
         </div>
         <div>
           <UserItem />
+          <Item label="Search" icons={Search} isSearch onClick={() => {}} />
+          <Item label="Settings" icons={Settings} onClick={() => {}} />
+          <Item onClick={handleCreate} label="new page" icons={PlusCircle} />
         </div>
-        <div className="mt-4 bg-">documents</div>
+        <div className="mt-4 bg-">
+          <DocumentList />
+          <Item onClick={handleCreate} icons={Plus} label="Add a new page" />
+          <Popover>
+            <PopoverTrigger className="w-full mt-4">
+              <Item label="Trash" icons={Trash}></Item>
+            </PopoverTrigger>
+            <PopoverContent
+              side={isMobile ? "bottom" : "right"}
+              className="p-0 w-72 "
+            >
+              <TrashBox />
+            </PopoverContent>
+          </Popover>
+        </div>
         <div
-          className="opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0"
+          className="opacity-0 group-hover/sidebar:opacin ty-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0"
           onMouseDown={handleMouseDown}
           onClick={resetWidth}
         />
