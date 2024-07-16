@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ConvexClientProvider } from "@/components/providers/convex-provider";
 import NavBar from "./(marketing)/_components/NavBar";
 import {Toaster } from 'sonner'
+import SearchCmd from "@/components/search-cmd";
+import { ModalProvider } from "@/components/providers/modal-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,6 +48,7 @@ export default function RootLayout({
             <main>
               {/* <NavBar></NavBar> */}
               <Toaster position="bottom-center"/>
+              <ModalProvider/>
               {children}
             </main>
           </ThemeProvider>
