@@ -23,7 +23,7 @@ const TrashBox = () => {
     return document.title.toLowerCase().includes(search.toLowerCase());
   });
   const onClick = (documentId: string) => {
-    // router.push(`/document/${documentId}`);
+    router.push(`/documents/${documentId}`);
   };
   const onRestore = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -36,7 +36,7 @@ const TrashBox = () => {
       success: "Note Restored",
       error: "Failed to restore note",
     });
-    // if (param.documentId === documentId) router.push(`/document`);
+    if (param.documentId === documentId) router.push(`/documents`);
   };
   const onRemove = (documentId: Id<"document">) => {
     const promise = remove({ id: documentId });
@@ -45,7 +45,11 @@ const TrashBox = () => {
       success: "Note Deleting",
       error: "Failed to delete note",
     });
-    if (param.documentId === documentId) router.push(`/document`);
+    //code to redirect to /documents page after permenenlty deleting the note
+    if (param.id === documentId) {
+      router.push(`/documents`);
+      router.refresh();
+    }
   };
 
   if (document === undefined)
@@ -83,7 +87,7 @@ const TrashBox = () => {
             >
               <Undo className="h-4 w-4 text-muted-foreground "></Undo>
             </div>
-            <ConfirmDelete onConfirm={()=>onRemove(doc._id)}>
+            <ConfirmDelete onConfirm={() => onRemove(doc._id)}>
               <div
                 className="rounded-sm p-2 hover:bg-neutral-200 dark:hover:bg-neutral-600"
                 role="button"
