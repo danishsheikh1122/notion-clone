@@ -124,7 +124,7 @@ const Navigation = () => {
       error: "failed to create a new note",
     });
   };
-  console.log(params.id)
+  // console.log(params.id)
 
   return (
     <>
