@@ -16,21 +16,13 @@ import { Button } from "@/components/ui/button";
 interface Props {
   initialData: Doc<"document">;
 }
-const publish = ({ initialData }: Props) => {
+const Publish = ({ initialData }: Props) => {
   // Publish logic goes here
-  /* trunk-ignore(eslint/react-hooks/rules-of-hooks) */
   const origin = useOrigin();
-  /* trunk-ignore(eslint/react-hooks/rules-of-hooks) */
   const update = useMutation(api.documents.update);
-
-  /* trunk-ignore(eslint/react-hooks/rules-of-hooks) */
   const [copied, setCopied] = useState(false);
-  /* trunk-ignore(eslint/react-hooks/rules-of-hooks) */
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const url = `${origin}/preview/${initialData._id}`;
-  /* trunk-ignore(eslint) */
-
   const onPublish = () => {
     setIsSubmitting(true);
     const promise = update({
@@ -126,4 +118,4 @@ const publish = ({ initialData }: Props) => {
   );
 };
 
-export default publish;
+export default Publish;

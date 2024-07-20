@@ -7,8 +7,7 @@ import { ArrowBigLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-const heading = () => {
-  /* trunk-ignore(eslint/react-hooks/rules-of-hooks) */
+const Heading = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
   return (
     <div className="max-w-3xl space-y-4">
@@ -48,4 +47,4 @@ const heading = () => {
   );
 };
 
-export default heading;
+export default Heading;

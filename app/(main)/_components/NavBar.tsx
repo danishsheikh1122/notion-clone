@@ -23,7 +23,6 @@ const NavBar = ({ onResetWidth, isCollapsed }: Props) => {
     return <div>Loading...</div>;
   }
 
-  /* trunk-ignore(eslint/react-hooks/rules-of-hooks) */
   const document = useQuery(api.documents.getById, {
     id: params.id as Id<"document">,
   });

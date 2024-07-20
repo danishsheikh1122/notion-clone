@@ -13,11 +13,8 @@ interface DocumentIdPage {
     id: Id<"document">;
   };
 }
-const documentIdPage = ({ params: { id } }: DocumentIdPage) => {
-  /* trunk-ignore(eslint/react-hooks/rules-of-hooks) */
+const DocumentIdPage = ({ params: { id } }: DocumentIdPage) => {
   const document = useQuery(api.documents.getById, { id: id });
-
-  /* trunk-ignore(eslint/react-hooks/rules-of-hooks) */
   const update = useMutation(api.documents.update);
   const onChange=(content:string)=>{
     update({
@@ -53,4 +50,4 @@ const documentIdPage = ({ params: { id } }: DocumentIdPage) => {
   );
 };
 
-export default documentIdPage;
+export default DocumentIdPage;
