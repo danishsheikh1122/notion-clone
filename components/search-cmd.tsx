@@ -12,7 +12,7 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
-  CommandList
+  CommandList,
 } from "./ui/command";
 
 const SearchCmd = () => {
@@ -40,8 +40,18 @@ const SearchCmd = () => {
   }, [toggle]);
 
   const onSelect = (id: string) => {
-    router.push(`/document/${id}`);
-    onClose();
+    let str = id;
+    let charToRemoveFrom = "-";
+
+    // Find the starting index of the character to remove from
+    let startIndex = str.indexOf(charToRemoveFrom);
+
+    if (startIndex !== -1) {
+      // Extract the part of the string before the character
+      let newStr = str.substring(0, startIndex);
+      router.push(`/documents/${newStr}`);
+      onClose();
+    }
   };
 
   if (!isMounted) return null;

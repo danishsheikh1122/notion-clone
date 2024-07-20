@@ -13,7 +13,7 @@ import {
   Trash,
 } from "lucide-react";
 import { calculateOverrideValues } from "next/dist/server/font-utils";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import UserItem from "./useritem";

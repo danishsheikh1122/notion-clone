@@ -15,7 +15,7 @@ interface DocumentIdPage {
 }
 const documentIdPage = ({ params: { id } }: DocumentIdPage) => {
   /* trunk-ignore(eslint/react-hooks/rules-of-hooks) */
-  const document = useQuery(api.documents.getById, { id: id });
+  const document = useQuery(api.documents.PreviewgetById, { id: id });
 
   /* trunk-ignore(eslint/react-hooks/rules-of-hooks) */
   const update = useMutation(api.documents.update);
@@ -44,10 +44,10 @@ const documentIdPage = ({ params: { id } }: DocumentIdPage) => {
   if (document === null) return <div> not found</div>;
   return (
     <div className="pb-40">
-      <CoverComponent url={document.coverImage} />
+      <CoverComponent preview url={document.coverImage} />
       <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
-        <ToolBar initialData={document}></ToolBar>
-        <Editor onChange={onChange} initialValue={document.content} />
+        <ToolBar preview initialData={document}></ToolBar>
+        <Editor editable={false} onChange={onChange} initialValue={document.content} />
       </div>
     </div>
   );

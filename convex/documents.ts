@@ -198,6 +198,20 @@ export const getById = query({
   },
 });
 
+export const PreviewgetById = query({
+  args: { id: v.id("document") },
+  handler: async (ctx, args) => {
+    const document = await ctx.db.get(args.id);
+    if (!document) {
+      throw new Error("Not found");
+    }
+    if (document.isPublisher && !document.isArchived) return document;
+    return document;
+  },
+});
+
+
+
 export const update = mutation({
   args: {
     id: v.id("document"),
