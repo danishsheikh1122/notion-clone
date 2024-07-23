@@ -30,7 +30,7 @@ import {
 import TrashBox from "./trashbox";
 import { useSearch } from "@/hooks/use-search";
 import { useSettings } from "@/hooks/use-settings";
-import NavBar from "./navbar";
+import NavBar from "./NavBarr";
 
 const Navigation = () => {
   const search = useSearch();
