@@ -8,10 +8,8 @@ import Image from "next/image";
 import React from "react";
 import { toast } from "sonner";
 
-const main = () => {
-  /* trunk-ignore(eslint/react-hooks/rules-of-hooks) */
+const Main = () => {
   const { user } = useUser();
-  /* trunk-ignore(eslint/react-hooks/rules-of-hooks) */
   const create = useMutation(api.documents.create);
 
   const onCreate = () => {
@@ -51,4 +49,4 @@ const main = () => {
   );
 };
 
-export default main;
+export default Main;

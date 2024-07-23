@@ -6,8 +6,7 @@ import React from "react";
 import Navigation from "./_components/navigation";
 import SearchCmd from "@/components/search-cmd";
 
-const layout = ({ children }: { children: React.ReactNode }) => {
-  /* trunk-ignore(eslint/react-hooks/rules-of-hooks) */
+const Layout = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated, isLoading } = useConvexAuth();
   if (isLoading)
     return (
@@ -26,4 +25,4 @@ const layout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default layout;
+export default Layout;
